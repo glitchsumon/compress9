@@ -35,6 +35,15 @@ fun HomeScreen(
     val prefs = context.getSharedPreferences("compress9_prefs", Context.MODE_PRIVATE)
     var showWelcome by remember { mutableStateOf(!prefs.getBoolean("welcome_dismissed", false)) }
 
+    var updateInfo by remember { mutableStateOf<UpdateInfo?>(null) }
+
+    LaunchedEffect(Unit) {
+        val info = UpdateChecker(context).check()
+        if (info.hasUpdate) {
+            updateInfo = info
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -168,6 +177,51 @@ fun HomeScreen(
                 TextButton(onClick = { showAbout = false }) {
                     Text("Close")
                 }
+            }
+        )
+    }
+
+    updateInfo?.let { info ->
+        AlertDialog(
+            onDismissRequest = { updateInfo = null },
+            shape = RoundedCornerShape(20.dp),
+            title = {
+                Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+                    Text("Update Available", fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.headlineSmall)
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text("v${info.latestVersion}",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary)
+                }
+            },
+            text = {
+                Column {
+                    Text(
+                        "A new version of Compress9 is available!",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    if (info.releaseNotes.isNotBlank()) {
+                        Spacer(modifier = Modifier.height(12.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Text("Release Notes:",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(info.releaseNotes,
+                            style = MaterialTheme.typography.bodySmall)
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    updateInfo = null
+                    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/glitchsumon/compress9/releases")))
+                }) { Text("Download") }
+            },
+            dismissButton = {
+                TextButton(onClick = { updateInfo = null }) { Text("Later") }
             }
         )
     }

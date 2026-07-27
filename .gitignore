@@ -9,6 +9,7 @@
 .cxx
 *.apk
 *.aab
+*.jks
 app/build/
 app/build
 build/
