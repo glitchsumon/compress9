@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/src/main/res/drawable/ic_launcher.png" alt="Compress9 Logo" width="120" height="120">
+  <img src="https://raw.githubusercontent.com/glitchsumon/compress9/main/app/src/main/res/drawable/ic_launcher.png" alt="Compress9 Logo" width="120" height="120">
 </p>
 
 <h1 align="center">Compress9</h1>
@@ -12,16 +12,16 @@
 
 <p align="center">
   <a href="https://github.com/glitchsumon/compress9/releases">
-    <img src="https://img.shields.io/github/v/release/glitchsumon/compress9?style=flat-square&logo=github" alt="GitHub Release">
+    <img src="https://img.shields.io/github/v/tag/glitchsumon/compress9?style=flat-square&logo=github&color=blue" alt="Version">
   </a>
   <a href="https://github.com/glitchsumon/compress9/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/glitchsumon/compress9?style=flat-square" alt="License">
+    <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/glitchsumon/compress9">
     <img src="https://img.shields.io/github/last-commit/glitchsumon/compress9?style=flat-square&logo=github" alt="Last Commit">
   </a>
   <a href="https://github.com/glitchsumon/compress9/releases">
-    <img src="https://img.shields.io/github/downloads/glitchsumon/compress9/total?style=flat-square" alt="Downloads">
+    <img src="https://img.shields.io/github/release-date/glitchsumon/compress9?style=flat-square&label=latest%20release&color=orange" alt="Release Date">
   </a>
   <img src="https://img.shields.io/badge/Kotlin-2.0-blue?style=flat-square&logo=kotlin" alt="Kotlin">
   <img src="https://img.shields.io/badge/API-24%2B-green?style=flat-square&logo=android" alt="API 24+">
