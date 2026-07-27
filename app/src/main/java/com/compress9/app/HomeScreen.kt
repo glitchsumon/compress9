@@ -136,10 +136,26 @@ fun HomeScreen(
             text = {
                 Column {
                     Text(
-                        "Compress9 is a lightweight Android application designed to compress " +
-                        "videos and images efficiently while preserving quality. Built with " +
-                        "Kotlin and Jetpack Compose.",
+                        "Compress9 is a lightweight, ad-free, and open-source Android application " +
+                        "that compresses videos and images directly on your device — no internet " +
+                        "or server required. It uses hardware-accelerated MediaCodec encoding for " +
+                        "fast video compression while preserving quality.",
                         style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        "Key Features:",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        "• Video: MP4, MKV, AVI, MOV, 3GP & more\n" +
+                        "• Image: JPG, PNG, WEBP & more\n" +
+                        "• Hardware-accelerated encoding\n" +
+                        "• Real-time progress with ETA\n" +
+                        "• Fully offline & privacy-first",
+                        style = MaterialTheme.typography.bodySmall
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     HorizontalDivider()
